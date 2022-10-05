@@ -1,9 +1,9 @@
-//const getPatientsUrl = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/consultarPacientes';
-const getPatientsUrl = 'http://127.0.0.1:8000/auxiliar/consultarPacientes';
+const getPatientsUrl = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/consultarPacientes';
+//const getPatientsUrl = 'http://127.0.0.1:8000/auxiliar/consultarPacientes';
 
 patients = [];
 
-function getPatient() {
+function getPatients() {
   fetch(getPatientsUrl)
     .then(response => {
       console.log(response);
@@ -64,5 +64,5 @@ function collectData(evt) {
 
 //-----------------------------------
 
-document.addEventListener("DOMContentLoaded", getPatient);
+document.addEventListener("DOMContentLoaded", getPatients);
 document.id.addEventListener("submit", collectData);

@@ -1,5 +1,5 @@
-//const newDoctor = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoDoctor';
-const newDoctor = 'http://127.0.0.1:8000/auxiliar/nuevoDoctor';
+const newDoctor = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoDoctor';
+//const newDoctor = 'http://127.0.0.1:8000/auxiliar/nuevoDoctor';
 
 function validate_letter(val) {
     const letters = /^[A-Z a-zÁÉÍÓÚáéíóúñ]+$/;
@@ -112,7 +112,7 @@ function saveDoctor(data) {
 function handleSuccess() {
     document.getElementById("formData").remove();
     const message = document.createElement("p");
-    message.innerText = "Paciente creado exitosamente.";
+    message.innerText = "Doctor creado exitosamente.";
     const info = document.getElementById("info");
     info.appendChild(message);
 }
@@ -120,7 +120,7 @@ function handleSuccess() {
 function handleError() {
     document.getElementById("formData").remove();
     const message = document.createElement("p");
-    message.innerText = "No se pudo crear el paciente. Intente luego.";
+    message.innerText = "No se pudo crear el doctor. Intente luego.";
     const info = document.getElementById("info");
     info.appendChild(message);
 }

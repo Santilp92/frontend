@@ -1,5 +1,5 @@
-//const newRelative = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoFamiliar';
-const newRelative = 'http://127.0.0.1:8000/auxiliar/nuevoFamiliar';
+const newRelative = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoFamiliar';
+//const newRelative = 'http://127.0.0.1:8000/auxiliar/nuevoFamiliar';
 
 function validate_letter(val) {
     const letters = /^[A-Z a-zÁÉÍÓÚáéíóúñ]+$/;
@@ -30,8 +30,9 @@ function collectData(evt) {
     const nombres = document.registro.nombres.value.trim();
     const apellidos = document.registro.apellidos.value.trim();
     const celular = document.registro.celular.value.trim();
-    const parentesco = document.registro.parentesco.value.trim();
     const correo = document.registro.correo.value.trim();
+    const clave = document.registro.clave.value.trim();
+    const parentesco = document.registro.parentesco.value.trim();
     const idPaciente = document.registro.idPaciente.value.trim();
 
     let result = validate_id(id);
@@ -81,8 +82,9 @@ function collectData(evt) {
         nombres: nombres,
         apellidos: apellidos,
         celular: celular,
-        parentesco: parentesco,
         correo: correo,
+        clave: clave,
+        parentesco: parentesco,
         idPaciente: idPaciente,
     }
     console.log(paciente);
@@ -119,7 +121,7 @@ function saveRelative(data) {
 function handleSuccess() {
     document.getElementById("formData").remove();
     const message = document.createElement("p");
-    message.innerText = "Paciente creado exitosamente.";
+    message.innerText = "Familiar creado exitosamente.";
     const info = document.getElementById("info");
     info.appendChild(message);
 }
@@ -127,7 +129,7 @@ function handleSuccess() {
 function handleError() {
     document.getElementById("formData").remove();
     const message = document.createElement("p");
-    message.innerText = "No se pudo crear el paciente//. Intente luego.";
+    message.innerText = "No se pudo crear el familiar. Intente luego.";
     const info = document.getElementById("info");
     info.appendChild(message);
 }

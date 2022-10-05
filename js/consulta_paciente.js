@@ -1,5 +1,5 @@
-//const getPatientUrl = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/paciente/';
-const getPatientUrl = 'http://127.0.0.1:8000/auxiliar/paciente/';
+const getPatientUrl = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/paciente/';
+//const getPatientUrl = 'http://127.0.0.1:8000/auxiliar/paciente/';
 
 
 function getPatient() {

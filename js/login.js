@@ -1,5 +1,5 @@
-//const loginUrl = 'https://aplicacionhospitalencasa.herokuapp.com/login';
-const loginUrl = 'http://127.0.0.1:8000/login';
+const loginUrl = 'https://aplicacionhospitalencasa.herokuapp.com/login';
+//const loginUrl = 'http://127.0.0.1:8000/login';
 
 
 function collectData(evt) {

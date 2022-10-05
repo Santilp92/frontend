@@ -1,5 +1,5 @@
-//const newPatient = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoPaciente';
-const newPatient = 'http://127.0.0.1:8000/auxiliar/nuevoPaciente';
+const newPatient = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoPaciente';
+//const newPatient = 'http://127.0.0.1:8000/auxiliar/nuevoPaciente';
 
 function validate_letter(val) {
     const letters = /^[A-Z a-zÁÉÍÓÚáéíóúñ]+$/;
@@ -30,6 +30,8 @@ function collectData(evt) {
     const nombres = document.registro.nombres.value.trim();
     const apellidos = document.registro.apellidos.value.trim();
     const celular = document.registro.celular.value.trim();
+    const correo = document.registro.correo.value.trim();
+    const clave = document.registro.clave.value.trim(); 
     const direccion = document.registro.direccion.value.trim();
     const ciudad = document.registro.ciudad.value.trim();
     const fechaNacimiento = document.registro.fechaNacimiento.value.trim();
@@ -72,9 +74,12 @@ function collectData(evt) {
         nombres: nombres,
         apellidos: apellidos,
         celular: celular,
+        correo: correo,
+        clave: clave,
         direccion: direccion,
         ciudad: ciudad,
         fechaNacimiento: fechaNacimiento,
+        idDoctor: 0,
     }
     console.log(paciente);
     const dataToSend = JSON.stringify(paciente);
@@ -119,7 +124,7 @@ function handleSuccess() {
 function handleError() {
     document.getElementById("formData").remove();
     const message = document.createElement("p");
-    message.innerText = "No se pudo crear el paciente//. Intente luego.";
+    message.innerText = "No se pudo crear el paciente. Intente luego.";
     const info = document.getElementById("info");
     info.appendChild(message);
 }
