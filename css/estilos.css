@@ -1,0 +1,123 @@
+body{
+    margin: 0 0 0 0;
+}
+
+table th, td {
+    text-align: center;
+    padding: 8px;
+    background-color: aquamarine;
+}
+
+.header{
+    margin: 0%;
+    padding: 0;
+    width: 100%;
+    height: 10vh;
+    min-height: 100px;
+    background-color: #a27338 ;
+    color:#E5E7E9 ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1{
+    width: 20%;
+    text-align: center;
+    padding: 0;
+}
+
+.header nav button{
+    color: #000103;
+    background: #f9fafc;
+    border: 1px solid #E5E7E9;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-right: 4px;   
+     
+}
+
+.header nav button:hover{
+    color: #283747;
+    background: #E5E7E9;
+    border: 1px solid #E5E7E9;
+}
+
+.main-component {
+    margin: 2% 5%;
+}
+
+footer{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 10vh;
+    background-color: #a27338;
+    color: #E5E7E9;
+    bottom: 0;
+    position: fixed;
+    display: block;
+}
+
+footer h2{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    text-align: center;
+}
+
+.signUp_user{
+    margin: 30px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.container_signUp_user {
+    border: 3px solid #283747;
+    border-radius: 10px;
+    width: 25%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUp_user h2{
+    color: #283747;
+}
+
+.signUp_user form{
+    width: 70%;
+}
+
+.signUp_user input{
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border: 1px solid #283747;
+}
+
+.signUp_user input[type="submit"]{
+    width: 100%;
+    height: 40px;
+    color: #E5E7E9;
+    background: #283747;
+    border: 1px solid #E5E7E9;
+    border-radius: 5px;
+    padding: 10px 25px;
+    margin: 5px 0 25px 0;
+}
+
+.signUp_user input[type="submit"]:hover{
+    color: #E5E7E9;
+    background: blueviolet;
+    border: 1px solid #283747;
+}

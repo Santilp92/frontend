@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Su banco</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="../css/estilos.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Hospital en casa</h1>
+        <nav>
+            <a href="login.html"><button>Iniciar Sesión</button></a>
+            <a href="lista_pacientes.html"><button>Lista de Pacientes</button></a>
+            <a href="registro_paciente.html"><button>Registrar Paciente</button></a>
+            <a href="registro_familiar.html"><button>Registrar Familiar</button></a>
+            <a href="registro_doctor.html"><button>Registrar Doctor</button></a>
+        </nav>
+    </div>
+        
+    <div class="signUp_user" id="info">
+        <div class="container_signUp_user" id="formData">
+            <h2>Registrar Familiar</h2>
+            <form name="registro" method="post">
+                <input type="number" name="id" placeholder="Documento" required>
+                <br>
+                <input type="text" name="nombres" placeholder="Nombre" required>
+                <br>
+                <input type="text" name="apellidos" placeholder="Apellido" required>
+                <br>
+                <input type="number" name="celular" placeholder="Celular" required>
+                <br>
+                <input type="email" name="correo" placeholder="Corre0" required>
+                <br>
+                <input type="password" name="clave" placeholder="Contraseña" required>
+                <br>
+                <input type="text" name="parentesco" placeholder="Parentesco" required>
+                <br>
+                <input type="number" name="idPaciente" placeholder="Id del paciente" required>
+                <br>
+                <input type="submit" value="Registrarse">
+            </form>
+        </div>
+    </div>
+        
+    <footer>
+        <h2>Misión TIC 2022</h2>
+    </footer>
+
+    <script src="../js/registro_familiar.js"></script>
+</body>
+</html>
