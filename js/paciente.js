@@ -1,5 +1,5 @@
-const getPatientUrl = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/paciente/';
-//const getPatientUrl = 'http://127.0.0.1:8000/auxiliar/paciente/';
+//const getPatientUrl = 'https://aplicacionhospitalencasa.herokuapp.com/paciente/';
+const getPatientUrl = 'http://127.0.0.1:8000/paciente/';
 
 
 function getPatients() {
@@ -8,7 +8,17 @@ function getPatients() {
   console.log(id)
   //const id = 2;
   // Petición HTTP
-  fetch(getPatientUrl + id)
+  const accessToken = sessionStorage.getItem("accessToken");
+  const refreshToken = sessionStorage.getItem("refreshToken");
+  // console.log("Aca entre el otro archivo: " + accessToken);
+  // console.log("Aca entre el otro archivo: " + refreshToken);
+
+
+  fetch(getPatientUrl + id, {
+    headers:{
+      "Authorization": "Bearer " + accessToken
+    }
+  })
     .then(response => {
       console.log(response);
       if (response.ok || response.status == 400)

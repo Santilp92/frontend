@@ -1,17 +1,17 @@
-const loginUrl = 'https://aplicacionhospitalencasa.herokuapp.com/login';
-//const loginUrl = 'http://127.0.0.1:8000/login';
+//const loginUrl = 'https://aplicacionhospitalencasa.herokuapp.com/login/';
+const loginUrl = 'http://127.0.0.1:8000/login/';
 
 
 function collectData(evt) {
     evt.preventDefault();
 
-    const correo = document.login.correo.value.trim();
-    const clave = document.login.clave.value.trim();
+    const email = document.login.email.value.trim();
+    const password = document.login.password.value.trim();
 
 
     const paciente = {
-        correo: correo,
-        clave: clave
+        email: email,
+        password: password
     }
 
     console.log(paciente);
@@ -25,7 +25,7 @@ function login(data) {
     fetch(loginUrl, {
         method: "POST",
         headers: {
-            "Content-Type": "text/json"
+            "Content-Type": "application/json"
         },
         body: data
     })
@@ -55,6 +55,11 @@ function handleSuccess(data) {
     message.innerText = "Ingreso exitoso. Accediendo a su información...";
     const info = document.getElementById("info");
     info.appendChild(message);
+    // console.log(data.access);
+    // console.log(data.refresh);
+    sessionStorage.setItem("accessToken", data.access);
+    sessionStorage.setItem("refreshToken", data.refresh);
+    sessionStorage.setItem("personaId", data.id);
     window.location.href = './paciente.html?id='+ data.id;
 }
 
