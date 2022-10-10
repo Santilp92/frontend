@@ -1,24 +1,24 @@
-const getPatientsUrl = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/consultarPacientes';
-//const getPatientsUrl = 'http://127.0.0.1:8000/auxiliar/consultarPacientes';
+//const getPatientsUrl = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/consultarPacientes';
+const getPatientsUrl = 'http://127.0.0.1:8000/auxiliar/consultarPacientes';
 
 patients = [];
 
 function getPatients() {
   fetch(getPatientsUrl)
     .then(response => {
-      console.log(response);
+      //console.log(response);
       if (response.ok)
         return response.text()
       else
         throw new Error(response.status);
     })
     .then(data => {
-      console.log("Datos: " + data);
+      //console.log("Datos: " + data);
       patients = JSON.parse(data);
       handlePatients();
     })
     .catch(error => {
-      console.error("ERROR: ", error.message);
+      //console.error("ERROR: ", error.message);
       handleError();
     });
 }

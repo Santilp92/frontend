@@ -13,7 +13,7 @@
     <div class="header">
         <h1>Hospital en casa</h1>
         <nav>
-            <a href="index.html"><button>Salir</button></a>
+            <a href="login.html"><button>Iniciar Sesión</button></a>
             <a href="lista_pacientes.html"><button>Lista de Pacientes</button></a>
             <a href="registro_paciente.html"><button>Registrar Paciente</button></a>
             <a href="registro_familiar.html"><button>Registrar Familiar</button></a>
@@ -23,25 +23,13 @@
         
     <div class="signUp_user" id="info">
         <div class="container_signUp_user" id="formData">
-            <h2>Registrar Doctor</h2>
-            <form name="registro" method="post">
-                <input type="number" name="id" placeholder="Documento" required>
-                <br>
-                <input type="text" name="nombres" placeholder="Nombre" required>
-                <br>
-                <input type="text" name="apellidos" placeholder="Apellido" required>
-                <br>
-                <input type="number" name="celular" placeholder="Celular" required>
-                <br>
+            <h2>Iniciar Sesion</h2>
+            <form name="login" method="post">
                 <input type="email" name="email" placeholder="Correo" required>
                 <br>
                 <input type="password" name="password" placeholder="Contraseña" required>
                 <br>
-                <input type="number" name="registro" placeholder="Registro" required>
-                <br>
-                <input type="text" name="especialidad" placeholder="Especialidad" required>
-                <br>
-                <input type="submit" value="Registrarse">
+                <input type="submit" value="Ingresar">
             </form>
         </div>
     </div>
@@ -50,6 +38,6 @@
         <h2>Misión TIC 2022</h2>
     </footer>
 
-    <script src="../js/registro_doctor.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 </html>

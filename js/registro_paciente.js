@@ -1,5 +1,5 @@
-const newPatient = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoPaciente';
-//const newPatient = 'http://127.0.0.1:8000/auxiliar/nuevoPaciente';
+//const newPatient = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoPaciente';
+const newPatient = 'http://127.0.0.1:8000/auxiliar/nuevoPaciente';
 
 function validate_letter(val) {
     const letters = /^[A-Z a-zÁÉÍÓÚáéíóúñ]+$/;
@@ -30,8 +30,8 @@ function collectData(evt) {
     const nombres = document.registro.nombres.value.trim();
     const apellidos = document.registro.apellidos.value.trim();
     const celular = document.registro.celular.value.trim();
-    const correo = document.registro.correo.value.trim();
-    const clave = document.registro.clave.value.trim(); 
+    const email = document.registro.email.value.trim();
+    const password = document.registro.password.value.trim(); 
     const direccion = document.registro.direccion.value.trim();
     const ciudad = document.registro.ciudad.value.trim();
     const fechaNacimiento = document.registro.fechaNacimiento.value.trim();
@@ -74,16 +74,17 @@ function collectData(evt) {
         nombres: nombres,
         apellidos: apellidos,
         celular: celular,
-        correo: correo,
-        clave: clave,
+        email: email,
+        password: password,
         direccion: direccion,
         ciudad: ciudad,
         fechaNacimiento: fechaNacimiento,
+        isAdmin: false,
         idDoctor: 0,
     }
-    console.log(paciente);
+    //console.log(paciente);
     const dataToSend = JSON.stringify(paciente);
-    console.log(dataToSend)
+    //console.log(dataToSend)
     login(dataToSend);
 }
 
@@ -97,18 +98,18 @@ function login(data) {
         body: data
     })
         .then(response => {
-            console.log(response);
+            //console.log(response);
             if (response.ok)
                 return response.text()
             else
                 throw new Error(response.text());
         })
         .then(data => {
-            console.log(data);
+            //console.log(data);
             handleSuccess();
         })
         .catch(error => {
-            console.error("ERROR: ", error.message);
+            //console.error("ERROR: ", error.message);
             handleError();
         });
 }

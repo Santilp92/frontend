@@ -14,9 +14,9 @@ function collectData(evt) {
         password: password
     }
 
-    console.log(paciente);
+    //console.log(paciente);
     const dataToSend = JSON.stringify(paciente);
-    console.log(dataToSend)
+    //console.log(dataToSend)
     login(dataToSend);
 }
 
@@ -30,21 +30,21 @@ function login(data) {
         body: data
     })
         .then(response => {
-            console.log(response);
+            //console.log(response);
             if (response.ok || response.status == 401)
         return response.text()
             else
                 throw new Error(response.text());
         })
         .then(data => {
-            console.log(data);
+            //console.log(data);
             if (data.includes("Credenciales inválidas")){
                 handleError(data)
             }
             handleSuccess(JSON.parse(data));
         })
         .catch(error => {
-            console.error("ERROR: ", error.message);
+            //console.error("ERROR: ", error.message);
             handleError(error.message);
         });
 }
@@ -55,12 +55,17 @@ function handleSuccess(data) {
     message.innerText = "Ingreso exitoso. Accediendo a su información...";
     const info = document.getElementById("info");
     info.appendChild(message);
-    // console.log(data.access);
-    // console.log(data.refresh);
+    //console.log(data.access);
+    //console.log(data.refresh);
     sessionStorage.setItem("accessToken", data.access);
     sessionStorage.setItem("refreshToken", data.refresh);
     sessionStorage.setItem("personaId", data.id);
-    window.location.href = './paciente.html?id='+ data.id;
+    if (data.id == 1){
+        window.location.href = './auxiliar.html';
+    } else{
+        window.location.href = './paciente.html?id='+ data.id;
+    }
+    
 }
 
 function handleError(err) {

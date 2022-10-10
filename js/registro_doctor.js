@@ -1,5 +1,5 @@
-const newDoctor = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoDoctor';
-//const newDoctor = 'http://127.0.0.1:8000/auxiliar/nuevoDoctor';
+//const newDoctor = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoDoctor';
+const newDoctor = 'http://127.0.0.1:8000/auxiliar/nuevoDoctor';
 
 function validate_letter(val) {
     const letters = /^[A-Z a-zÁÉÍÓÚáéíóúñ]+$/;
@@ -30,6 +30,8 @@ function collectData(evt) {
     const nombres = document.registro.nombres.value.trim();
     const apellidos = document.registro.apellidos.value.trim();
     const celular = document.registro.celular.value.trim();
+    const email = document.registro.email.value.trim();
+    const password = document.registro.password.value.trim(); 
     const registro = document.registro.registro.value.trim();
     const especialidad = document.registro.especialidad.value.trim();
 
@@ -75,10 +77,13 @@ function collectData(evt) {
         nombres: nombres,
         apellidos: apellidos,
         celular: celular,
+        email: email,
+        password: password,
+        isAdmin: false,
         registro: registro,
         especialidad: especialidad,
     }
-    console.log(doctor);
+    //console.log(doctor);
     const dataToSend = JSON.stringify(doctor);
     saveDoctor(dataToSend);
 }
@@ -93,18 +98,18 @@ function saveDoctor(data) {
         body: data
     })
         .then(response => {
-            console.log(response);
+            //console.log(response);
             if (response.ok)
                 return response.text()
             else
                 throw new Error(response.text());
         })
         .then(data => {
-            console.log(data);
+            //console.log(data);
             handleSuccess();
         })
         .catch(error => {
-            console.error("ERROR: ", error.message);
+            //console.error("ERROR: ", error.message);
             handleError();
         });
 }

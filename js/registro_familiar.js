@@ -1,5 +1,5 @@
-const newRelative = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoFamiliar';
-//const newRelative = 'http://127.0.0.1:8000/auxiliar/nuevoFamiliar';
+//const newRelative = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/nuevoFamiliar';
+const newRelative = 'http://127.0.0.1:8000/auxiliar/nuevoFamiliar';
 
 function validate_letter(val) {
     const letters = /^[A-Z a-zÁÉÍÓÚáéíóúñ]+$/;
@@ -30,8 +30,8 @@ function collectData(evt) {
     const nombres = document.registro.nombres.value.trim();
     const apellidos = document.registro.apellidos.value.trim();
     const celular = document.registro.celular.value.trim();
-    const correo = document.registro.correo.value.trim();
-    const clave = document.registro.clave.value.trim();
+    const email = document.registro.email.value.trim();
+    const password = document.registro.password.value.trim();
     const parentesco = document.registro.parentesco.value.trim();
     const idPaciente = document.registro.idPaciente.value.trim();
 
@@ -77,18 +77,19 @@ function collectData(evt) {
     }
 
 
-    const paciente = {
+    const familiar = {
         id: id,
         nombres: nombres,
         apellidos: apellidos,
         celular: celular,
-        correo: correo,
-        clave: clave,
+        email: email,
+        password: password,
+        isAdmin: false,
         parentesco: parentesco,
         idPaciente: idPaciente,
     }
-    console.log(paciente);
-    const dataToSend = JSON.stringify(paciente);
+    console.log(familiar);
+    const dataToSend = JSON.stringify(familiar);
     saveRelative(dataToSend);
 }
 
