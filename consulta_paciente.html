@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="../css/estilos.css" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet">
     <title>Hospital en Casa</title>
 </head>
 <body>
@@ -21,17 +21,17 @@
     </div>
 
     <div class="main-component">
-        <h2>Listado de pacientes</h2>
-        <div id="info-pacientes">
+        <h2>Información Paciente</h2>
+        <div id="info-paciente">
             <div id="cargando">Cargando...</div>
         </div>
-        <form name="id" method="post">
+        <form name="doctor" method="post">
             <br>
-            <label for="id">Escriba la cédula del paciente</label>
+            <label for="id">Escriba la cédula del doctor</label>
             <br>
             <input type="number" name="id" placeholder="Cedula" required>
             <br>
-            <input type="submit" value="Buscar">
+            <input type="submit" value="Asignar">
         </form>
     </div>
 
@@ -39,6 +39,6 @@
         <h2>Misión TIC 2022</h2>
     </footer>
 
-    <script src="../js/lista_pacientes.js"></script>
+    <script src="js/consulta_paciente.js"></script>
 </body>
 </html>

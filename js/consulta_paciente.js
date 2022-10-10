@@ -75,14 +75,61 @@ function handleError(err) {
   info.appendChild(message);
 }
 
-function updateDoctor(){
+function collectData(evt){
   evt.preventDefault();
-  const id = document.doctor.id.value;
+
+  const idDoctor = document.doctor.id.value;
+
+  console.log(idDoctor)
+  const paciente = {}
+  if(idDoctor){
+    paciente.idDoctor = idDoctor;
+  }
+  console.log(paciente);
+
+   const dataToSend = JSON.stringify(paciente);
+   console.log(dataToSend)
+   updateDoctor(dataToSend);
+}
+
+
+function updateDoctor(data){ 
+  //const getPatientUrl = 'https://aplicacionhospitalencasa.herokuapp.com/auxiliar/asignarDoctor/';
+  const updateDoctorUrl = 'http://127.0.0.1:8000/auxiliar/asignarDoctor/'
+
+  const parsedUrl =new URL (window.location.href)
+  const id = parsedUrl.searchParams.get("id")
   console.log(id)
-  window.location.href = './consulta_paciente.html?id='+ id;
+  console.log(data)
+
+  fetch(updateDoctorUrl + id, {
+    method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: data
+  })
+  
+    .then(response => {
+      //console.log(response);
+      if (response.ok)
+        return response.text()
+      else
+        throw new Error(response.status);
+    })
+    .then(data => {
+      //console.log("Datos: " + data);
+      alert('Datos actualizados.');
+      window.location.href = window.location.href;
+    })
+    .catch(error => {
+      //console.error("ERROR: ", error.message);
+      alert('Error al actualizar datos');
+      window.location.href = window.location.href;
+    });
 }
 
 //-----------------------------------
 
 document.addEventListener("DOMContentLoaded", getPatient);
-document.doctor.addEventListener("submit", updateDoctor)
+document.doctor.addEventListener("submit", collectData);

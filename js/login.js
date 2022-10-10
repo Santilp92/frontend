@@ -37,14 +37,14 @@ function login(data) {
                 throw new Error(response.text());
         })
         .then(data => {
-            //console.log(data);
+            console.log(data);
             if (data.includes("Credenciales inválidas")){
                 handleError(data)
             }
             handleSuccess(JSON.parse(data));
         })
         .catch(error => {
-            //console.error("ERROR: ", error.message);
+            console.error("ERROR: ", error.message);
             handleError(error.message);
         });
 }
@@ -55,17 +55,21 @@ function handleSuccess(data) {
     message.innerText = "Ingreso exitoso. Accediendo a su información...";
     const info = document.getElementById("info");
     info.appendChild(message);
-    //console.log(data.access);
-    //console.log(data.refresh);
+    console.log(data.access);
+    console.log(data.refresh);
+    console.log(data.id)
     sessionStorage.setItem("accessToken", data.access);
     sessionStorage.setItem("refreshToken", data.refresh);
     sessionStorage.setItem("personaId", data.id);
-    if (data.id == 1){
+    if (data.rol == "admin"){
         window.location.href = './auxiliar.html';
-    } else{
+    } else if (data.rol == "paciente"){
         window.location.href = './paciente.html?id='+ data.id;
+    } else if (data.rol == "familiar"){
+        window.location.href = './familiar.html?id='+ data.id;
+    } else if (data.rol == "doctor"){
+        window.location.href = './doctor.html?id='+ data.id;
     }
-    
 }
 
 function handleError(err) {

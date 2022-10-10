@@ -1,8 +1,8 @@
-//const getPatientUrl = 'https://aplicacionhospitalencasa.herokuapp.com/paciente/';
-const getPatientUrl = 'http://127.0.0.1:8000/paciente/';
+//const getDoctorUrl = 'https://aplicacionhospitalencasa.herokuapp.com/doctor/';
+const getDoctorUrl = 'http://127.0.0.1:8000/doctor/';
 
 
-function getPatients() {
+function getDoctor() {
   // const parsedUrl =new URL (window.location.href)
   // const id = parsedUrl.searchParams.get("id")
   // console.log(id)
@@ -16,7 +16,7 @@ function getPatients() {
   console.log(id)
 
 
-  fetch(getPatientUrl + id, {
+  fetch(getDoctorUrl + id, {
     headers:{
       "Authorization": "Bearer " + accessToken
     }
@@ -30,11 +30,11 @@ function getPatients() {
     })
     .then(data => {
       console.log("Datos: " + data);
-      if (data.includes("No existe paciente con esta cédula")){
+      if (data.includes("No existe doctor con esta cédula")){
         handleError(data)
       }
       patient = JSON.parse(data);
-      handlePatient(patient);
+      handleDoctor(patient);
     })
     .catch(error => {
       console.error("ERROR: ", error.message);
@@ -42,7 +42,7 @@ function getPatients() {
     });
 }
 
-function handlePatient(persona) {
+function handleDoctor(persona) {
   const personInfo = document.createElement('div')
   personInfo.innerHTML = `
      <h3>Cedula: ${persona.id}</h4>
@@ -50,20 +50,12 @@ function handlePatient(persona) {
      <h3>Apellido: ${persona.apellidos}</h3>
      <h3>Correo: ${persona.email}</h3>
      <h3>Telefono: ${persona.celular}</h3>
-     <h3>Direccion: ${persona.paciente.direccion}</h3>
-     <h3>Ciudad: ${persona.paciente.ciudad}</h3>
-     <h3>Fecha nacimiento: ${persona.paciente.fechaNacimiento}</h3>
-     <h3>Paciente numero: ${persona.paciente.numPaciente}</h3>
-     <h3>Id doctor: ${persona.paciente.idDoctor}</h3>
+     <h3>Direccion: ${persona.doctor.registro}</h3>
+     <h3>Direccion: ${persona.doctor.especialidad}</h3>
   `
   document.getElementById("cargando").remove();
-  const info = document.getElementById("info-paciente");
+  const info = document.getElementById("info-doctor");
   info.appendChild(personInfo);
-
-  sessionStorage.setItem("celular", persona.celular);
-  sessionStorage.setItem("email", persona.email);
-  sessionStorage.setItem("direccion", persona.paciente.direccion);
-  sessionStorage.setItem("ciudad", persona.paciente.ciudad);
 }
 
 function handleError(err) {
@@ -73,10 +65,10 @@ function handleError(err) {
     message.innerText = err;
   else
     message.innerText = "No se pudo cargar la información. Intente más tarde.";
-  const info = document.getElementById("info-paciente");
+  const info = document.getElementById("info-doctor");
   info.appendChild(message);
 }
 
 //-----------------------------------
 
-document.addEventListener("DOMContentLoaded", getPatients);
+document.addEventListener("DOMContentLoaded", getDoctor);
